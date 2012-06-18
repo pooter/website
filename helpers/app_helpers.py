@@ -17,11 +17,8 @@ from google.appengine.api import users
 
 
 DATETIME_FORMAT = "%Y-%m-%d %H:%M:%S"
-AMAZON_S3_URL = "http://media.pooter.it.s3.amazonaws.com"
-FACEBOOK_APP_ID = "145856778799168"
-FACEBOOK_APP_SECRET = "5be334a9d1cc8bf0995ecaad10826378"                      
+AMAZON_S3_URL = "http://media.pooter.it.s3.amazonaws.com"                   
 VIEWS_ROOT = "views/"
-POOTER_API_SALT = "4q77gOPATMZyv2pT"
 
 
 class helper:
