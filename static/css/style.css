@@ -1,0 +1,930 @@
+/* 
+  HTML5 ✰ Boilerplate 
+  
+  style.css contains a reset, font normalization and some base styles.
+  
+  credit is left where credit is due.
+  much inspiration was taken from these projects:
+    yui.yahooapis.com/2.8.1/build/base/base.css
+    camendesign.com/design/
+    praegnanz.de/weblog/htmlcssjs-kickstart
+*/
+
+/* 
+  html5doctor.com Reset Stylesheet (Eric Meyer's Reset Reloaded + HTML5 baseline)
+  v1.4 2009-07-27 | Authors: Eric Meyer & Richard Clark
+  html5doctor.com/html-5-reset-stylesheet/
+*/
+
+html, body, div, span, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+abbr, address, cite, code,
+del, dfn, em, img, ins, kbd, q, samp,
+small, strong, sub, sup, var,
+b, i,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section, summary,
+time, mark, audio, video {
+  margin:0;
+  padding:0;
+  border:0;
+  outline:0;
+  font-size:100%;
+  vertical-align:baseline;
+  background:transparent;
+}                  
+
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section { 
+    display:block;
+}
+
+nav ul { list-style:none; }
+
+blockquote, q { quotes:none; }
+
+blockquote:before, blockquote:after,
+q:before, q:after { content:''; content:none; }
+
+a { margin:0; padding:0; font-size:100%; vertical-align:baseline; background:transparent; }
+
+ins { background-color:#ff9; color:#000; text-decoration:none; }
+
+mark { background-color:#ff9; color:#000; font-style:italic; font-weight:bold; }
+
+del { text-decoration: line-through; }
+
+abbr[title], dfn[title] { border-bottom:1px dotted; cursor:help; }
+
+table { border-collapse:collapse; border-spacing:0; }
+
+hr { display:block; height:1px; border:0; border-top:1px solid #ccc; margin:1em 0; padding:0; }
+
+input, select { vertical-align:middle; }
+
+/* END RESET CSS */
+
+
+/* fonts.css from the YUI Library: developer.yahoo.com/yui/
+   Refer to developer.yahoo.com/yui/3/cssfonts/ for font sizing percentages
+
+  There are three custom edits:
+   * remove arial, helvetica from explicit font stack
+   * we normalize monospace styles ourselves
+   * table font-size is reset in the HTML5 reset above so there is no need to repeat
+*/
+body { font:13px/1.231 sans-serif; *font-size:small; } /* hack retained to preserve specificity */
+
+select, input, textarea, button { font:99% sans-serif; }
+
+pre, code, kbd, samp { font-family: monospace, sans-serif; }
+ 
+
+/* 
+ * minimal base styles 
+ */
+
+body, select, input, textarea { 
+  color: #444; 
+  /* set your base font here, to apply evenly */
+  /* font-family: Georgia, serif;  */   
+}
+
+h1,h2,h3,h4,h5,h6 { font-weight: bold; }
+
+/*html { overflow-y: scroll; } */
+
+a:hover, a:active { outline: none; }
+
+a, a:active, a:visited { color: #0E302A; }
+a:hover { color: #0E302A; }
+
+ul, ol { margin-left: 1.8em; }
+ol { list-style-type: decimal; }
+
+nav ul, nav li { margin: 0; } 
+
+small { font-size: 85%; }
+strong, th { font-weight: bold; }
+
+td, td img { vertical-align: top; } 
+
+sub { vertical-align: sub; font-size: smaller; }
+sup { vertical-align: super; font-size: smaller; }
+
+pre { 
+  padding: 15px; 
+  
+  white-space: pre; /* CSS2 */
+  white-space: pre-wrap; /* CSS 2.1 */
+  white-space: pre-line; /* CSS 3 (and 2.1 as well, actually) */
+  word-wrap: break-word; /* IE */
+}
+
+textarea { overflow: auto; }
+
+.ie6 legend, .ie7 legend { margin-left: -7px; }
+
+input[type="radio"] { vertical-align: text-bottom; }
+input[type="checkbox"] { vertical-align: bottom; }
+.ie7 input[type="checkbox"] { vertical-align: baseline; }
+.ie6 input { vertical-align: text-bottom; }
+
+label, input[type=button], input[type=submit], button { cursor: pointer; }
+
+button, input, select, textarea { margin: 0; }
+
+/* colors for form validity */
+input:valid, textarea:valid   {  }
+input:invalid, textarea:invalid { 
+      border-radius: 1px;
+    -moz-box-shadow: 0px 0px 5px red; 
+ -webkit-box-shadow: 0px 0px 5px red; 
+         box-shadow: 0px 0px 5px red;
+}
+.no-boxshadow input:invalid, 
+.no-boxshadow textarea:invalid { background-color: #f0dddd; }
+
+::-moz-selection{ background: #FC4B40; color:#fff; text-shadow: none; }
+::selection { background:#FC4B40; color:#fff; text-shadow: none; } 
+
+a:link { -webkit-tap-highlight-color: #FF5E99; }
+
+button {  width: auto; overflow: visible; }
+
+.ie7 img { -ms-interpolation-mode: bicubic; }
+
+/* 
+ * Non-semantic helper classes 
+ */
+
+/* for image replacement */
+.ir { display: block; text-indent: -999em; overflow: hidden; background-repeat: no-repeat; text-align: left; direction: ltr; }
+
+.hidden { display: none; visibility: hidden; } 
+
+.visuallyhidden { position: absolute !important;    
+  clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+  clip: rect(1px, 1px, 1px, 1px); }
+
+.invisible { visibility: hidden; }
+
+.clearfix:before, .clearfix:after {
+  content: "\0020"; display: block; height: 0; visibility: hidden;	
+} 
+
+.clearfix:after { clear: both; }
+.clearfix { zoom: 1; }
+
+
+
+
+
+
+ /* Primary Styles
+    Author: TEF
+ */
+
+ /* COLOURS
+    RED         = #FC4B40
+    PALE YELLOW = #F0FF8C
+    LIGHT GREEN = #84D946
+    DARK GREEN  = #458C26
+    DEEP GREEN  = #0E302A
+ */
+body  {
+  background-color: #0E302A;
+  font-family: 'Arial', 'san-serif';
+  color: #0E302A;
+}
+
+a {
+  text-decoration: none;
+  outline: 0;
+}
+
+h1 {
+  font-family: 'AvantGardeBold';
+  font-size: 50px;
+  text-transform: uppercase;
+  color: #0E302A;
+  font-weight: 500;
+}
+
+input, textarea {
+  font-size: 18px;
+  margin-bottom: 15px;
+  padding: 8px 5px 5px 5px;
+  width: 300px;
+}
+
+input[type=checkbox] {
+  font-size: 18px;
+  margin: 17px 7px 0 10px;
+  padding: 12px 8px 5px;
+  width: auto;
+}
+
+em {
+  -moz-opacity:.25; filter:alpha(opacity=25); opacity:.25;
+}
+
+header {
+  background: url('/images/green_turret_bg.png') repeat-x bottom #84D946;
+  overflow: auto;
+}
+
+header #logo {
+  float: left;
+  padding: 5px 17px;
+}
+
+header #logo a {
+  font-family: 'AvantGardeBold';
+  font-size: 78px;
+  text-transform: uppercase;
+  color: #0E302A;
+}
+
+header #nav {
+  float:right;
+}
+
+header #nav div.icon {
+  height: 54px;
+  background: url('/images/icons_sprite.png') no-repeat -24px -28px;
+}
+
+header #nav .home div.icon { width: 66px; background-position: -352px -138px; }
+header #nav .pooter div.icon { width: 49px; background-position: -140px -28px; }
+header #nav .league div.icon { width: 70px; background-position: -239px -28px; }
+header #nav .bees div.icon { width: 56px; background-position: -138px -28px; }
+header #nav .download div.icon { width: 58px; background-position: -682px -138px; }
+header #nav .prizes div.icon { width: 52px; background-position: -792px -138px; }
+
+header #nav div.button {
+  float: left;
+  margin: 10px 10px 0 0;
+  padding: 13px 17px;
+}
+
+header #nav div.label {
+  text-align: center;
+  -moz-opacity:.50; filter:alpha(opacity=50); opacity:.50;
+}
+
+header #nav div img {
+  height: 50px;
+}
+
+nav#sub {
+  width: 100%;
+  overflow: auto;
+  background: #0E302A;
+}
+
+nav#sub div.breadcrumb {
+  float: left;
+  text-align:center;
+  font-family: 'AvantGardeBold';
+  font-size: 18px;
+  text-transform: uppercase;
+  padding: 12px 30px 12px 18px;
+  background: url(/images/breadcrumb_bg.png) no-repeat 100% 46%;
+}
+
+nav#sub div {
+  float: left;
+  text-align:center;
+  font-family: 'AvantGardeBold';
+  font-size: 18px;
+  text-transform: uppercase;
+  padding: 12px 24px;
+}
+
+nav#sub div#login {
+  color: #FFF;
+  float: right;
+}
+
+nav#sub div#login a {
+  color: #FC4B40;
+}
+
+.content {
+  padding: 20px;
+}
+
+.turf {
+  background: url('/images/green_turret_bg.png') bottom repeat-x;
+}
+
+.divider {
+  padding: 12px 17px;
+}
+
+.divider h1 {
+  font-family: 'AvantGardeBold';
+  font-size: 20px;
+  text-transform: uppercase;
+  font-weight: normal;
+}
+
+.location_lookup {
+  display: none;
+}
+
+.table .row {
+  padding: 17px;
+  overflow: auto;
+  height: 100px;
+  outline: 0;
+  position: relative;
+}
+
+.table .row.odd, .map_poot.odd {
+  background-color: #F5F5F5;
+  outline: 0;
+}
+
+.table .row:hover {
+  background-color: #F0FF8C;
+  outline: 0;
+}
+
+.table .row .icon {
+  float: left;
+  background: url('/images/icons_sprite.png') no-repeat -115px -112px;
+  width: 100px;
+  height: 100px;
+  padding: 0px;
+  background-color: #EDEDED;
+  margin-right: 17px;
+}
+
+.admin .table .row .icon {
+  float: left;
+  width: 50px;
+  height: 42px;
+  padding: 0px;
+  margin-right: 25px;
+  background: none;
+}
+
+.table#players .row .icon {
+  float: left;
+  background: none;
+  width: 100px;
+  height: 100px;
+  padding: 0px;
+  margin-right: 15px;
+}
+
+.table#leagues .row {
+  height: 88px;
+}
+
+.table#leagues .row .icon {
+  float: left;
+  background: none;
+  width: 134px;
+  height: 88px;
+  padding: 0px;
+  margin-right: 15px;
+}
+
+.table .row h1 {
+  font-size: 30px;
+  font-weight: normal;
+}
+
+.table .row .rank {
+  font-family: 'AvantGardeBold';
+  font-size: 35px;
+  float: right;
+  position: absolute;
+  top: 42px;
+  right: 17px;
+  text-align: right;
+  color: #FC4B40;
+}
+
+.table .row h3 {
+  font-family: "Georgia", serif;
+  font-style: italic;
+  font-size: 16px;
+  font-weight: normal;
+  color: #FC4B40;
+}
+
+.red {
+  background-color: #FC4B40;
+  color: #FFF;
+}
+
+.white {
+  background-color: #FFF;
+}
+
+.green {
+  background-color: #84D946;
+  color: #FFF;
+}
+
+.dark_green {
+  background-color: #0E302A;
+  color: #FFF;
+}
+
+.yellow {
+  background-color: #F0FF8C;
+}
+
+.red.white {
+  background-color: #FFF;
+  color: #FC4B40;
+}
+
+.blue {
+  background-color: #627AAC;
+}
+
+.blue h1 {
+  color: #FFF;
+}
+
+/* LANDING PAGE */
+
+.middling {
+  width: 1024px;
+  margin: auto;
+  overflow: auto;
+}
+
+.phone {
+  background: url('/images/phone_bg.png') no-repeat;
+  height: 495px;
+  width: 314px;
+  padding-top: 95px;
+  position: relative;
+  float: left;
+}
+
+.phone .movie {
+  width: 222px;
+  height: 333px;
+  margin: 0 0 0 50px;
+  background: url('/images/phone_shots.png');
+}
+
+.phone .movie {
+  width: 222px;
+  overflow: hidden;
+}
+
+.phone .movie .holder {
+  float: left;
+  position: relative;
+  left: 0px;
+  width: 2000px;
+}
+
+.phone .movie img {
+  width: 666px;
+}
+
+.phone .sheen {
+  background: url('/images/phone_sheen.png') no-repeat;
+  height: 278px;
+  width: 91px;
+  position: absolute;
+  top: 95px;
+  right: 43px;
+}
+
+.phone .free {
+  background: url('/images/free.png') no-repeat;
+  height: 91px;
+  width: 91px;
+  position: absolute;
+  top: 30px;
+}
+
+.landing {
+  background: url('/images/green_turret_bg.png') repeat-x bottom #FFF;
+  height: 522px;
+  padding: 50px 0;
+}
+
+.landing .head {
+  font-family: 'AvantGardeBold';
+  font-size: 50px;
+  text-transform: uppercase;
+  color: #FC4B40;
+  line-height: 45px;
+  margin-top: 120px;
+  margin-left: 5px;
+}
+
+.landing .subhead {
+  font-size: 15px;
+  margin: 10px 0 25px 5px;
+}
+
+.landing .lowercase {
+  text-transform: lowercase;
+}
+
+.panel {
+  list-style: none;
+  margin: 0;
+  overflow: auto;
+  float: right;
+}
+
+.panel li {
+  float: left;
+  display: block;
+  border-left: 1px solid;
+  padding: 10px 10px 10px 10px;
+  cursor: pointer;
+}
+
+.red .panel li { border-left-color: #ED6E6E; }
+.red .panel a { color: #FFF; }
+.white .panel li { border-left-color: #DDD; }
+.dark_green .panel li { border-left-color: #1B4940; }
+
+.feature_bar.bottom.white .panel li:hover {
+  background-color: #FC4B40;
+  color: #FFF;
+}
+
+.feature_bar.bottom.white .panel li:hover a { color: #FFF; }
+
+.feature_bar {
+  overflow: auto;
+  padding: 0px;
+}
+
+.feature_bar.dark_green {
+  background: url('/images/footer_bg.png');
+}
+
+#features {
+  background: url('/images/features.png') no-repeat 242px 33px;
+  width: 240px;
+  float: left;
+  margin-top: 80px;
+  z-index: 100;
+  position: relative;
+  padding-right: 60px;
+}
+
+#features .panel li {
+  float: none;
+  text-align: right;
+  border-left: none;
+  margin-top: 29px;
+}
+
+.title {
+  float: left;
+  width: 385px;
+  margin: 0 0 0 10px;
+  z-index: 100;
+  position: relative;
+}
+
+.watermark {
+  color: #84D946 !important;
+}
+
+input:-moz-placeholder {
+  color: #84D946;
+}
+
+input::-webkit-input-placeholder {
+  color: #84D946;
+}
+
+.share_holder {
+  display: inline-block;
+  padding: 5px 0 0 20px;
+  position: absolute;
+}
+
+.poot_share_holder {
+  display: inline-block;
+  padding: 8px 0 8px 20px;
+}
+
+#fb-root {
+  float: left;
+}
+
+.twitter-share-button {
+  position: relative;
+  top: 3px;
+  margin-right: -8px;
+}
+
+.cloud {
+  position: absolute;
+  z-index: 0;
+  top: 0px;
+  left: 0px;
+}
+
+.copyright {
+  padding: 10px;
+  opacity: 0.2;
+  text-align: center;
+}
+
+.sponsors {
+  margin: auto;
+  width: 1001px;
+  overflow: auto;
+}
+
+.sponsors .sponsor {
+  float: left;
+  width: 100px;
+  height: 165px;
+  background-image: url('/images/sponsors.png');
+  opacity: 0.25;
+}
+
+.sponsors .sponsor.ideastap { width: 143px; background-position: -22px 0px; }
+.sponsors .sponsor.nyt { width: 165px; background-position: -155px 0px; }
+.sponsors .sponsor.swarm { width: 175px; background-position: -311px 0px; }
+.sponsors .sponsor.honeydew { width: 175px; background-position: -489px 0px; }
+.sponsors .sponsor.trunki { width: 165px; background-position: -657px 0px; }
+.sponsors .sponsor.nbn { width: 163px; background-position: -817px 0px; }
+
+/* END LANDING PAGE */
+
+/* PRIZE PAGE */
+
+#prizes {
+  overflow: visible;
+}
+
+.prize {
+  padding: 20px;
+  background: rgba(15,48,42,0.075);
+  margin: 0 0 20px 0;
+  text-align: center;
+}
+
+.prize.small {
+  float: left;
+}
+
+.prize.small .prize_img {
+  height: 150px;
+}
+
+.prize_img {
+  height: 250px;
+  margin-right: 20px;
+}
+
+.prize sup, .prize h2 {
+  font-size: 25px;
+  font-family: Georgia;
+  font-style: italic;
+  text-transform: lowercase;
+  font-weight: normal;
+}
+
+.prize h2 {
+  font-size: 20px;
+}
+
+.prize.small .prize_img.tiny {
+  height: 110px;
+}
+
+.right_20 {
+  margin-right: 20px;
+}
+
+.prize.more h1 {
+  font-size: 32px;
+  line-height: 32px;
+  font-weight: 500;
+  margin-bottom: 15px;
+}
+
+.prize.more {
+  background: #F0FF8C;
+  width: 175px;
+  margin-left: 20px;
+  height: 231px;
+  position: relative;
+}
+
+.prize.more .bee_tree {
+  position: absolute;
+  left: 0px;
+}
+
+#prize_sponsors {
+  overflow: auto;
+}
+
+.prize_sponsor {
+  float: left;
+  padding: 15px;
+  width: 475px;
+  text-shadow: 0 1px 0 rgba(255,255,255,0.4);
+}
+
+.prize_sponsor a {
+  font-weight: bold;
+  color: #FFF;
+  display: block;
+  margin-top: 10px;
+}
+
+.prize_sponsor h1 {
+  margin-bottom: 35px;
+}
+
+.prize_sponsor .fb-like {
+  position: relative;
+  top: -23px;
+}
+
+/* END PRIZE PAGE */
+
+/* LIVE PAGE */
+#map_container {
+  padding-left: 0px;   /* LC width */
+  padding-right: 350px;  /* RC width */
+}
+#map_container .column {
+  position: relative;
+  float: left;
+}
+#map_canvas {
+  width: 100%;
+}
+
+#poot_holder {
+  width: 350px;          /* RC width */
+  margin-right: -350px;  /* RC width */
+}
+
+#poot_holder .icon_holder {
+  float: right;
+  height: 100px;
+  overflow: hidden;
+  margin: 15px;
+}
+
+#poot_holder .icon {
+  width: 100px;
+}
+
+#poot_holder .map_poot .text {
+  float: left;
+  padding: 10px 0 5px 15px;
+  width: 170px;
+}
+
+#poot_holder .map_poot .text em {
+  font-family: 'Georgia', serif;
+  color: #FC4B40;
+  -moz-opacity: 1;
+  filter: alpha(opacity=100);
+  opacity: 1;
+  padding-bottom: 2px;
+  display: inline-block;
+}
+
+#poot_holder .map_poot .text strong {
+  font-family: 'AvantGardeBold';
+  text-transform: uppercase;
+  font-size: 24px;
+  line-height: 18px;
+  font-weight: normal;
+}
+
+#poot_holder_inner {
+  overflow-y: scroll;
+}
+
+.map_poot {
+  padding: 0px;
+  display: none;
+  cursor: pointer;
+  overflow: auto;
+  height: 130px;
+}
+
+.map_poot:hover,
+.map_poot.odd.highlight,
+.map_poot.highlight {
+  background-color: #F0FF8C;
+}
+
+/* END LIVE PAGE */
+
+@font-face {
+   font-family: 'AvantGardeBold';
+   src: url('/fonts/avantgardelt-bold-webfont.eot#') format('embedded-opentype'),
+        url('/fonts/avantgardelt-bold-webfont.woff') format('woff'),
+        url('/fonts/avantgardelt-bold-webfont.ttf') format('truetype'),
+        url('/fonts/avantgardelt-bold-webfont.svg#webfont7QWrDOwh') format('svg');
+   font-weight: normal;
+   font-style: normal;
+;
+}
+
+/* ADMIN STYLE */
+.admin header #logo a {
+  font-size: 34px;
+} 
+
+.hidden {
+  display: none;
+}
+
+.dropdown {
+  padding: 20px;
+}
+
+.admin .row h1 {
+  font-size: 20px;
+  font-weight: normal;
+}
+
+.admin .table .row {
+  height: auto;
+}
+
+.admin .table .row h1 {
+  float: left;
+}
+
+.admin .table .row .delete {
+  float: right;
+}
+
+.transparency-20 {
+  opacity: 0.2;
+}
+
+
+
+
+
+/*
+ * Media queries for responsive design
+ * These follow after primary styles so they will successfully override. 
+ */
+
+@media all and (orientation:portrait) { 
+  /* Style adjustments for portrait mode goes here */
+  
+}
+
+@media all and (orientation:landscape) { 
+  /* Style adjustments for landscape mode goes here */
+  
+}
+
+/* Grade-A Mobile Browsers (Opera Mobile, iPhone Safari, Android Chrome)  
+   Consider this: www.cloudfour.com/css-media-query-for-mobile-is-fools-gold/ */
+@media screen and (max-device-width: 480px) {
+  
+  
+  /* Uncomment if you don't want iOS and WinMobile to mobile-optimize the text for you
+     j.mp/textsizeadjust 
+  html { -webkit-text-size-adjust:none; -ms-text-size-adjust:none; } */
+}
+
+/* 
+ * print styles
+ * inlined to avoid required HTTP connection www.phpied.com/delay-loading-your-print-css/ 
+ */
+@media print {
+  * { background: transparent !important; color: #444 !important; text-shadow: none !important; }
+  a, a:visited { color: #444 !important; text-decoration: underline; }
+  a:after { content: " (" attr(href) ")"; } 
+  abbr:after { content: " (" attr(title) ")"; }
+  .ir a:after { content: ""; }  /* Don't show links for images */
+  pre, blockquote { border: 1px solid #999; page-break-inside: avoid; }
+  thead { display: table-header-group; } /* css-discuss.incutio.com/wiki/Printing_Tables */ 
+  tr, img { page-break-inside: avoid; }
+  @page { margin: 0.5cm; }
+  p, h2, h3 { orphans: 3; widows: 3; }
+  h2, h3{ page-break-after: avoid; }
+}
+

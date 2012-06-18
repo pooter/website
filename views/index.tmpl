@@ -1,0 +1,67 @@
+{% extends "master.tmpl" %}
+{% block js %}
+<script>
+  $(document).ready(function() {
+    select_top_nav(0);
+  });
+</script>
+{% endblock %}
+{% block subnav %}
+{% endblock %}
+{% block body %}
+<div class="content red alert hidden"></div>
+<div class="content white landing">
+  <div class="middling">
+    <div id="features">
+      <ul class="panel">
+        <li>
+          <strong>Challenge your friends!</strong><br />
+          <span>
+              See what they've caught,<br>
+              challenge their poots <br>
+              and share your photos.
+          </span>
+        </li>
+        <li>
+          <strong>Identify bumblebees!</strong><br />
+          <span>Use our easy guides to learn<br />
+          about the world of bees</span>
+        </li>
+        <li>
+          <strong>Win prizes!</strong><br />
+          <span>Amazing goodies up for grabs<br />
+          for whoever tops the leaderboard</span>
+        </li>
+        <li>
+          <strong>Help save the bees!</strong><br />
+          <span>Your data will be automagically<br />
+          helping vital conservation work<br />
+          around bee decline</span>
+        </li>
+      </ul>
+    </div>
+    <div class="phone">
+      <div class="movie"></div>
+      <div class="sheen"></div>
+      <div class="free"></div>
+    </div>
+  
+    <div class="title">
+      <div class="head">
+        The catchy<br />
+        little bee game
+        for <br /><span class="lowercase">i</span>Phone
+      </div>
+      <div class="subhead">
+        Challenge your friends to catch all the bees<br />
+        this Summer. Will you lift the Pooter Cup?
+      </div>
+      <div>
+        <a href="http://itunes.apple.com/gb/app/pooter!/id426349821?mt=8">
+            <img src="/images/appstore.png">
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

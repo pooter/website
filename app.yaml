@@ -1,0 +1,29 @@
+application: pooterweb
+version: 3
+runtime: python
+api_version: 1
+
+handlers:
+- url: /images
+  static_dir: static/images
+
+- url: /css
+  static_dir: static/css
+
+- url: /js
+  static_dir: static/js
+
+- url: /fonts
+  static_dir: static/fonts
+
+- url: /apple-touch-icon\.png
+  static_files: static/images/apple-touch-icon.png
+  upload: static/images/apple-touch-icon\.png
+
+- url: /favicon\.ico
+  static_files: static/images/favicon.ico
+  upload: static/images/favicon\.ico
+
+- url: /.*
+  script: controllers/WebController.py
+

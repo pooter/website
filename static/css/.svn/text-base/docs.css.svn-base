@@ -1,0 +1,38 @@
+#docs_left_col {
+  float: left;
+  width: 250px;
+}
+
+#docs_body {
+  background-color:#FFFFFF;
+  color:#0E302A;
+  float:left;
+  padding:40px;
+  width: 670px;
+}
+
+#docs_left_col li {
+  padding: 10px;
+}
+
+#docs_left_col li a {
+  font-family: "Lucida Sans", "Lucida Sans Unicode", "Lucida Grande", Verdana, Arial, Helvetica, sans-serif;;
+}
+
+h1 {
+  color: #FC4B40;
+}
+
+h3 {
+  font-size: 25px;
+  margin-top: 20px;
+}
+
+.docs_menu_header {
+  background-color: #FC4B40;
+  color: #fff;
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 3px;
+  font-size: 12px;
+}

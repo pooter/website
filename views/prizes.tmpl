@@ -1,0 +1,94 @@
+{% extends "master.tmpl" %}
+{% block js %}
+<script>
+  $(document).ready(function() {
+    select_top_nav(1);
+  });
+</script>
+{% endblock %}
+{% block subnav %}
+{% endblock %}
+{% block body %}
+<div class="content red alert hidden"></div>
+<div class="content white turf">
+  <div class="middling" style="overflow: visible;">
+    <div id="prizes">
+      <div id="first_prize" class="prize">
+        <h1>1<sup>st</sup> Grand Prize</h1>
+        <img class="prize_img" src="/images/prize_cup.png">
+        <img class="prize_img" src="/images/prize_fullers.png">
+        <img class="prize_img" src="/images/prize_trunki.png">
+        <img class="prize_img" src="/images/prize_beehouse.png"><br>
+        The Pooter! Cup ✭
+        1 pack of Fuller's Organic Honey Dew Beer ✭
+        1 bee house ✭
+        1 Bernard the Bee Trunki
+      </div>
+      
+      <div style="overflow: visible;">
+        <div id="second_prize" class="prize small right_20">
+          <h1>2<sup>nd</sup> + 3<sup>rd</sup> Runner-up</h1>
+          <img class="prize_img" src="/images/prize_fullers.png">
+          <img class="prize_img" src="/images/prize_trunki.png">
+          <img class="prize_img" src="/images/prize_beehouse.png"><br>
+          1 pack of Fuller's Organic Honey Dew Beer ✭
+          1 bee house ✭
+          1 Bernard the Bee Trunki
+        </div>
+      
+        <div id="photo_prize" class="prize small">
+          <h1>Photo</h1>
+          <h2>of the week</h2><br>
+          <img class="prize_img tiny" src="/images/prize_beehouse.png"><br>
+          A bee house ✭
+          Lots of hugs
+        </div>
+      
+        <div id="third_prize" class="prize small more">
+          <h1>And Lots<br>more</h1>
+          As the Summer goes on
+          we'll be announcing more
+          top prizes.
+          <img src="/images/bee_tree.png" class="bee_tree">
+        </div> 
+        
+        <div style="clear: left;"></div>
+      </div>
+      
+    </div>
+    
+    <div id="prize_sponsors">
+      
+      <div class="prize_sponsor">
+        <h1>
+          Honey Dew
+          <div class="fb-like" data-href="http://www.facebook.com/fullershoneydew" data-send="false" data-layout="button_count" data-width="50" data-show-faces="true"></div>
+        </h1>
+        <strong>Fuller's Honey Dew</strong> refreshing golden beer is brewed with real organic honey 
+        for a wonderful bittersweet flavour which perfectly complements a 
+        host of dishes especially spicy sausages or marinated meats and fish. 
+        Find Honey Dew in the bottled ale aisle of your local store and 
+        serve well chilled for the ultimate in summer refreshment.<br>
+        <a href="http://www.fullers.co.uk/rte.asp?id=50">www.fullers.co.uk</a>
+      </div>
+      
+      <div class="prize_sponsor">
+        <h1>
+          Trunki
+          <div class="fb-like" data-href="http://www.facebook.com/TrunkiTowers" data-send="false" data-layout="button_count" data-width="50" data-show-faces="true"></div>
+        </h1>
+        <strong>Trunki</strong> create innovative travel products designed to make family travel 
+        easier whether that’s a weekend at Granny's or a round the world trip!
+        We've got everything you need to make your journey a doddle including BoostApak - 
+        a backpack which doubles as a booster seat as seen on BBC's The Apprentice.<br>
+        <a href="http://trunki.co.uk">www.trunki.co.uk</a>
+      </div>
+      
+      <div style="clear: left;"></div>
+      
+    </div>
+    
+  </div>
+  
+</div>
+{% endblock %}

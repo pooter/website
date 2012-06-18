@@ -1,0 +1,163 @@
+<!doctype html>  
+
+<!--[if lt IE 7 ]> <html lang="en" class="no-js ie6"> <![endif]-->
+<!--[if IE 7 ]>    <html lang="en" class="no-js ie7"> <![endif]-->
+<!--[if IE 8 ]>    <html lang="en" class="no-js ie8"> <![endif]-->
+<!--[if IE 9 ]>    <html lang="en" class="no-js ie9"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--> <html lang="en" class="no-js"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Pooter! | The catchy little bee game for iPhone</title>
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <meta property="og:title" content="Pooter!"/>
+  <meta property="og:type" content="game"/>
+  <meta property="og:url" content="http://www.pooter.it"/>
+  <meta property="og:image" content="http://www.pooter.it/images/avatar_large.png"/>
+  <meta property="og:site_name" content="Pooter!"/>
+  <meta property="fb:admins" content="836545316"/>
+  <meta property="og:description" content="The catchy little bee game for iPhone. Challenge your friends to snap up bees, help conservation efforts and win prizes."/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/css/style.css?v=2">
+  <script src="/js/libs/modernizr-1.6.min.js"></script>
+  <script type="text/javascript"
+      src="http://maps.google.com/maps/api/js?sensor=false">
+  </script>
+</head>
+
+<body>
+
+  <div id="container">
+    <header>
+      <div class="middling">
+        <div id="logo">
+          <a href="/">Pooter!</a>
+        </div>
+        <div id="nav">
+          <a href='/'>
+            <div class="button home dark_green">
+              <div class="icon"></div>
+              <div class="label">Welcome</div>
+            </div>
+          </a>
+        
+          <a href='/prizes'>
+            <div class="button prizes dark_green">
+              <div class="icon"></div>
+              <div class="label">Prizes</div>
+            </div>
+          </a>
+        
+          <a href='http://itunes.apple.com/gb/app/pooter!/id426349821?mt=8'>
+            <div class="button download red">
+              <div class="icon"></div>
+              <div class="label">Download</div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </header>
+    
+    <nav id="sub">
+      {% block subnav %}{% endblock %}
+    </nav>
+    
+    <div id="main">
+      {% block body %}{% endblock %}
+      <div class="content white feature_bar bottom">
+        <div class="middling">
+          <span class="share_holder">
+            <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://www.pooter.it" data-text="Pooter!" data-count="horizontal" data-via="pooterit">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
+            <div id="fb-root"></div><script src="http://connect.facebook.net/en_US/all.js#appId=213469172011677&amp;xfbml=1"></script><fb:like href="http://www.pooter.it" send="true" layout="button_count" width="100" show_faces="false" font="lucida grande"></fb:like>
+          </span>
+          <ul class="panel">
+            <a href="http://blog.pooter.it">
+            <li><strong>News + gossip</strong></li>
+            </a>
+            <li>Follow us <strong><a href="http://twitter.com/pooterit">@pooterit</a></strong></li>
+            <li>Ideas or questions <strong><a href="mailto:hello@pooter.it">hello@pooter.it</a></strong></li>
+            <li><a class="credits"><strong>Credits</strong></a></li>
+          </ul>
+        </div>
+        <div class="content red feature_bar hidden">
+          <div class="middling">
+            <ul class="panel">
+              <li><a href="http://www.ideastap.com">IdeasTap</a></li>
+              <li><a href="http://www.nyt.org.uk/">National Youth Theatre</a></li>
+              <li><a href="http://www.bigbiodiversitycount.org.uk/">Dr Dan Danahar</a></li>
+              <li><a href="http://www.littlesnails.com/">Bob Foreman</a></li>
+              <li><a href="http://www.bumblebeeconservation.org.uk/">Dr Ben Darvill</a></li>
+              <li><a href="http://www.illustratedwildlife.com/">Chris Shields</a></li>
+              <li><a href="http://data.nbn.org.uk">Map data from NBN Gateway</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="content dark_green feature_bar">
+          <div class="sponsors">
+            <a href="http://www.ideastap.com"><div class="sponsor ideastap"></div></a>
+            <a href="http://www.nyt.org.uk"><div class="sponsor nyt"></div></a>
+            <a href="http://www.ideastap.com/people/72392cc0-c575-4417-9fdb-786792c47850/standard-portfolio/073df922-e3a6-40a1-b4cd-9e1001128673/"><div class="sponsor swarm"></div></a>
+            <a href="http://www.fullers.co.uk/rte.asp?id=50"><div class="sponsor honeydew"></div></a>
+            <a href="http://www.trunki.co.uk/"><div class="sponsor trunki"></div></a>
+            <a href="http://data.nbn.org.uk"><div class="sponsor nbn"></div></a>
+          </div>
+          <div class="copyright">Copyright 2012, Pooter! CIC #7525398</div>
+        </div>
+        </div>
+      </div>
+    </div>
+    
+    <footer>
+
+    </footer>
+  </div>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.13/jquery-ui.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="/js/libs/jquery-1.4.2.js"%3E%3C/script%3E'))</script>
+  
+  <script src="/js/plugins.js"></script>
+  <script src="/js/script.js"></script>
+  {% block js %}{% endblock %}
+  
+  <!--[if lt IE 7 ]>
+    <script src="/js/libs/dd_belatedpng.js"></script>
+    <script> DD_belatedPNG.fix('img, .png_bg'); //fix any <img> or .png_bg background-images </script>
+  <![endif]-->
+
+  <!-- yui profiler and profileviewer - remove for production
+  <script src="/js/profiling/yahoo-profiling.min.js"></script>
+  <script src="/js/profiling/config.js"></script>
+  end profiling code -->
+
+  <!-- google analytics -->
+  <script>
+   var _gaq = [['_setAccount', 'UA-21211045-1'], ['_trackPageview']];
+   (function(d, t) {
+    var g = d.createElement(t),
+        s = d.getElementsByTagName(t)[0];
+    g.async = true;
+    g.src = ('https:' == location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    s.parentNode.insertBefore(g, s);
+   })(document, 'script');
+  </script>
+  <!-- end google analytics code -->
+  
+  <!-- facebook js sdk -->
+  <div id="fb-root"></div>
+  <script>
+    window.fbAsyncInit = function() {
+      FB.init({appId: '145856778799168', status: true, cookie: true, xfbml: true });
+      FB.Event.subscribe('auth.login', function(response) { location.reload(true); });
+    };
+    (function() {
+      var e = document.createElement('script'); e.async = true;
+      e.src = document.location.protocol +
+        '//connect.facebook.net/en_US/all.js';
+      document.getElementById('fb-root').appendChild(e);
+    }());
+  </script>
+  <!-- end facebook js sdk -->
+</body>
+</html>
