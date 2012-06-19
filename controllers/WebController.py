@@ -47,7 +47,8 @@ class WebPootPageHandler(BaseHandler):
        
     path = helper.template_path("poot.tmpl")
     template_args = json.loads(received_content)
-    logging.info(template_args)
+    template_args["poot_key"] = poot_key_name
+
     self.response.out.write(template.render(path, template_args))
 
 

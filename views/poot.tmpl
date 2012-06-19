@@ -3,6 +3,17 @@
 {% block js %}
 {% endblock %}
 
+{% block meta %}
+  <title>Pooter! | {{ player_name }}'s {{ poot_species_common_name }} bumblebee</title>
+  <meta name="description" content="{{ player_name }} has pooted a {{ poot_species_common_name }} bumblebee using Pooter!, a free iPhone game designed to help save Britain's bees.">
+  <meta property="og:title" content="{{ player_name }}'s {{ poot_species_common_name }} bumblebee"/>
+  <meta property="og:type" content="article"/>
+  <meta property="og:url" content="http://www.pooter.it/poot/{{ poot_key }}"/>
+  <meta property="og:image" content="{{ poot_image_url }}=s500-c"/>
+  <meta property="og:description" content="{{ player_name }} has pooted a {{ poot_species_common_name }} bumblebee using Pooter!, a free iPhone game designed to help save Britain's bees."/>
+  <meta name="author" content="{{ player_name }}">
+{% endblock %}
+
 {% block body %}
 <div class="content white turf poot">
   <div class="middling">
@@ -21,6 +32,13 @@
       
       <h1>{{ poot_species_common_name }} Bumblebee</h1>
       <h2>{{ poot_species_scientific_name }} - {{ poot_species_points }}pts.</h2>
+      
+      <div class="social">
+        <div class="fb-like" data-href="http://pooter.it/poot/{{ poot_key }}" data-send="false" data-layout="button_count" data-width="50" data-show-faces="false"></div>
+        <div class="tweet">
+          <a href="https://twitter.com/share" class="twitter-share-button" data-via="pooterit">Tweet</a>
+        </div>
+      </div>
 
       <div class="map_wrap">
         <div id="poot_map" data-lat="{{ poot_location_lat }}" data-lon="{{ poot_location_lon }}"></div>
