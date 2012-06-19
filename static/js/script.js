@@ -23,9 +23,24 @@ $(document).ready(function() {
       });
   });
   
+  var m_names = new Array("Jan", "Feb", "March", 
+  "April", "May", "June", "July", "Aug", "Sept", 
+  "Oct", "Nov", "Dec");
+  
+  function parseDate(input, format) {
+    format = format || 'yyyy-mm-dd'; // default format
+    var parts = input.match(/(\d+)/g), 
+        i = 0, fmt = {};
+    // extract date-part indexes from the format
+    format.replace(/(yyyy|dd|mm)/g, function(part) { fmt[part] = i++; });
+
+    return new Date(parts[fmt['yyyy']], parts[fmt['mm']]-1, parts[fmt['dd']]);
+  }
+  
   $('.poot_date').each(function() {
-    var d = $.datepicker.formatDate('dd MM, yy', new Date($(this).attr('data-date')));
-    $(this).text($(this).text() + d);
+    var d = parseDate($(this).attr('data-date').split(' ')[0]);
+    var d_string = d.getDate() + " " + m_names[d.getMonth()] + ", " + d.getFullYear();
+    $(this).text($(this).text() + d_string);
   });
   
   $('.phone .movie').each(function() {
