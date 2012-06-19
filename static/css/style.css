@@ -1,3 +1,4 @@
+@import url(http://fonts.googleapis.com/css?family=Permanent+Marker);
 /* 
   HTML5 ✰ Boilerplate 
   
@@ -195,6 +196,7 @@ button {  width: auto; overflow: visible; }
     DARK GREEN  = #458C26
     DEEP GREEN  = #0E302A
  */
+
 body  {
   background-color: #0E302A;
   font-family: 'Arial', 'san-serif';
@@ -763,78 +765,144 @@ input::-webkit-input-placeholder {
 
 /* END PRIZE PAGE */
 
-/* LIVE PAGE */
-#map_container {
-  padding-left: 0px;   /* LC width */
-  padding-right: 350px;  /* RC width */
-}
-#map_container .column {
-  position: relative;
-  float: left;
-}
-#map_canvas {
-  width: 100%;
+/* POOT PAGE */
+.player .player_avatar {
+  width: 50px;
 }
 
-#poot_holder {
-  width: 350px;          /* RC width */
-  margin-right: -350px;  /* RC width */
+.player .player_name {
+  font-size: 25px;
+  font-weight: bold;
+  margin-left: 10px;
 }
 
-#poot_holder .icon_holder {
-  float: right;
-  height: 100px;
-  overflow: hidden;
-  margin: 15px;
-}
-
-#poot_holder .icon {
-  width: 100px;
-}
-
-#poot_holder .map_poot .text {
-  float: left;
-  padding: 10px 0 5px 15px;
-  width: 170px;
-}
-
-#poot_holder .map_poot .text em {
-  font-family: 'Georgia', serif;
+.player .player_points {
+  font-family: Georgia;
+  font-style: italic;
+  font-weight: bold;
   color: #FC4B40;
-  -moz-opacity: 1;
-  filter: alpha(opacity=100);
-  opacity: 1;
-  padding-bottom: 2px;
-  display: inline-block;
+  margin-left: 10px;
 }
 
-#poot_holder .map_poot .text strong {
-  font-family: 'AvantGardeBold';
-  text-transform: uppercase;
-  font-size: 24px;
-  line-height: 18px;
-  font-weight: normal;
+.poot h2 {
+  font-family: Georgia;
+  font-style: italic;
+  font-weight: bold;
+  color: #FC4B40;
+  font-size: 20px;
+  margin: 10px 0 35px;
 }
 
-#poot_holder_inner {
-  overflow-y: scroll;
+.player .left {
+  float: left;
 }
 
-.map_poot {
-  padding: 0px;
-  display: none;
-  cursor: pointer;
+.player {
   overflow: auto;
-  height: 130px;
+  margin-top: 20px;
 }
 
-.map_poot:hover,
-.map_poot.odd.highlight,
-.map_poot.highlight {
-  background-color: #F0FF8C;
+.poot_image_wrapper {
+  margin: 20px 8px;
 }
 
-/* END LIVE PAGE */
+.poot h1 {
+  line-height: 45px;
+  margin-top: 15px;
+}
+
+.poot_image {
+  width: 500px;
+  height: 500px;
+  overflow: hidden;
+  padding: 20px 20px 85px 20px;
+  -webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.27), 0 0 40px rgba(0, 0, 0, 0.06) inset;
+  -moz-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.27), 0 0 40px rgba(0, 0, 0, 0.06) inset; 
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.27), 0 0 40px rgba(0, 0, 0, 0.06) inset;
+  background: #FCFCFC;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  /*-webkit-transform:rotate(2deg);*/
+}
+
+.poot_image .poot_date {
+  text-align: center;
+  font-family: 'Permanent Marker', cursive;
+  font-size: 25px;
+  margin-top: 15px;
+  color: #0E302A;
+}
+
+.poot_image img {
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+}
+
+.right-col {
+  float: right;
+  width: 550px;
+}
+
+.left-col {
+  float: left;
+  width: 350px;
+}
+
+.map_wrap {
+  position: relative;
+  overflow: visible;
+}
+
+.map_overlay {
+  position: absolute;
+  top: -30px;
+  left: -20px;
+}
+
+#poot_map {
+  width: 425px;
+  height: 282px;
+}
+
+.poot .blurb {
+  text-align: center;
+  margin-top: 30px;
+  width: 435px;
+  text-shadow: 0px 1px 0px rgba(255,255,255,0.4);
+  line-height: 18px;
+}
+
+.poot_image:before,
+.poot_image:after {
+content: '';
+z-index: -1;
+position: absolute;
+left: 10px;
+bottom: 10px;
+width: 70%;
+max-width: 300px; /* avoid rotation causing ugly appearance at large container widths */
+max-height: 100px;
+height: 55%;
+-webkit-box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+-moz-box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+-webkit-transform: skew(-15deg) rotate(-6deg);
+-moz-transform: skew(-15deg) rotate(-6deg);
+-ms-transform: skew(-15deg) rotate(-6deg);
+-o-transform: skew(-15deg) rotate(-6deg);
+transform: skew(-15deg) rotate(-6deg); }
+
+
+.poot_image:after {
+left: auto;
+right: 10px;
+-webkit-transform: skew(15deg) rotate(6deg);
+-moz-transform: skew(15deg) rotate(6deg);
+-ms-transform: skew(15deg) rotate(6deg);
+-o-transform: skew(15deg) rotate(6deg);
+transform: skew(15deg) rotate(6deg); }
+
+/* END POOT PAGE */
 
 @font-face {
    font-family: 'AvantGardeBold';

@@ -19,12 +19,18 @@ from google.appengine.ext.webapp.util import run_wsgi_app
 from helpers.app_helpers import helper
 from helpers.app_helpers import BaseHandler
 
+from django.utils import simplejson as json
+from google.appengine.api import urlfetch
+from urllib import urlencode
+
+POOTER_API_ENDPOINT = 'http://pooter-bee-live.appspot.com/'
+
 
 class WebIndexPageHandler(BaseHandler):
   def get(self):
     path = helper.template_path("index.tmpl")
     self.response.out.write(template.render(path, self.template_args))
-    
+
 
 class WebPrizesPageHandler(BaseHandler):
   def get(self):
@@ -32,23 +38,23 @@ class WebPrizesPageHandler(BaseHandler):
     self.response.out.write(template.render(path, self.template_args))
 
 
-class WebLoginHandler(BaseHandler):
-  def get(self):
-    redirect_to = self.request.get("redirect_to")
-    self.redirect(users.create_login_url(redirect_to))
-
-
-class WebLogoutHandler(BaseHandler):
-  def get(self):
-    redirect_to = self.request.get("redirect_to")
-    self.redirect(users.create_logout_url(redirect_to))
+class WebPootPageHandler(BaseHandler):
+  def get(self, poot_key_name):
+    url = POOTER_API_ENDPOINT + "poot/" + poot_key_name
+    result = urlfetch.fetch(url)
+    
+    received_content = result.content
+       
+    path = helper.template_path("poot.tmpl")
+    template_args = json.loads(received_content)
+    logging.info(template_args)
+    self.response.out.write(template.render(path, template_args))
 
 
 application = webapp.WSGIApplication([
     ('/', WebIndexPageHandler),
-    ('/login', WebLoginHandler),
-    ('/logout', WebLogoutHandler),
     ('/prizes', WebPrizesPageHandler),
+    ('/poot/([a-zA-Z0-9-_]+)', WebPootPageHandler),
 ], debug=True)
 
 

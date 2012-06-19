@@ -1,70 +1,52 @@
 {% extends "master.tmpl" %}
 
 {% block js %}
-<script>
-  $(document).ready(function() {
-    select_top_nav(1);
-  });
-</script>
-{% endblock %}
-
-{% block subnav %}
-  <a href="/"><div class="filter dark_green breadcrumb">Home</div></a>
-  <div class="filter dark_green breadcrumb">Poot</div>
-  <div class="filter dark_green breadcrumb">{{ poot.species.common_name }}</div>
 {% endblock %}
 
 {% block body %}
-  <div id="poots" class="table white">
-  
-    <div class="row">
-      <h3>{{ poot.species.scientific_name }}{% if poot.dispooted %}?{% endif %}</h3>
-      <h1>{{ poot.species.common_name }}{% if poot.dispooted %}?{% endif %}</h1>
-      <strong>Pooted by</strong> <a href="/player/{{ poot.parent.key.name }}">{{ poot.parent.name }}</a><br>
-      <strong>on</strong> <span class="timeago" title="">{{ poot.date_caught|date:"d M" }}</span>
+<div class="content white turf poot">
+  <div class="middling">
     
-      <div class="rank">{{ poot.points }}pts</div>
+    <div class="left-col">
+      
+      <div class="player">
+        <div class="left">
+          <img class="player_avatar" src="{{ player_avatar_url }}">
+        </div>
+        <div class="left">
+          <span class="player_name">{{ player_name }}</span><br>
+          <span class="player_points">{{ player_points }}pts.</span>
+        </div>
+      </div>
+      
+      <h1>{{ poot_species_common_name }} Bumblebee</h1>
+      <h2>{{ poot_species_scientific_name }} - {{ poot_species_points }}pts.</h2>
+
+      <div class="map_wrap">
+        <div id="poot_map" data-lat="{{ poot_location_lat }}" data-lon="{{ poot_location_lon }}"></div>
+        <img class="map_overlay" src="/images/map_overlay.png">
+      </div>
+      
+      <div class="blurb">
+        <strong>{{ player_name }}</strong> is playing <strong>Pooter!</strong>, a free iPhone game<br>
+        designed to help save Britain's bees. 
+        <a href="http://get.pooter.it"><br><strong>Download now</strong></a> and join them.
+      </div>
+
+      {% if poot_dispooted %}
+        DISPOOTED!
+      {% endif %}
     </div>
-  
-  </div>
-  
-  <div class="content">
-    {% if image_key %}
-      <img src="/poot/full_image/{{ image_key }}" style="width:100%"/>
-    {% endif %}
-  </div>
-  
-  <div class="content white feature_bar">
-    <span class="poot_share_holder">
-      <a href="http://twitter.com/share"
-        class="twitter-share-button"
-        data-url="http://www.pooter.it/poot/{{ poot.key.name }}"
-        data-text="A {{ poot.species.common_name }} on Pooter! #catchthebug"
-        data-count="horizontal"
-        data-via="pooterit">Tweet</a>
-      <script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
-      <div id="fb-root"></div>
-      <script src="http://connect.facebook.net/en_US/all.js#appId=213469172011677&amp;xfbml=1"></script>
-      <fb:like href="http://www.pooter.it/poot/{{ poot.key.name }}"
-        send="true"
-        layout="button_count"
-        width="100"
-        show_faces="false"
-        font="lucida grande"></fb:like>
-    </span>
-  </div>
-  
-  {% if 1 %}
-    <div class="content red">
-      <h1>Dispoot</h1>
-      <form method="post" action="/poot/{{ poot.poot_key }}/dispoot">
-        <label for="points">Deduct</label><br>
-        <input name="points" id="points" type="text" />pts
-        <br>
-        <label for="reason">Why?</label><br>
-        <textarea id="reason" name="reason"></textarea><br>
-        <input type="submit" value="Dispoot!">
-      </form>
+    
+    <div class="right-col">
+      <div class="poot_image_wrapper">
+        <div class="poot_image">
+          <img src="{{ poot_image_url }}=s500-c" />
+          <div class="poot_date" data-date="{{ poot_date_taken }}">{{ poot_species_common_name }} - </div>
+        </div>
+      </div>
     </div>
-  {% endif %}
+    
+  </div>
+</div>
 {% endblock %}
