@@ -552,7 +552,6 @@ nav#sub div#login a {
   display: block;
   border-left: 1px solid;
   padding: 10px 10px 10px 10px;
-  cursor: pointer;
 }
 
 .red .panel li { border-left-color: #ED6E6E; }
