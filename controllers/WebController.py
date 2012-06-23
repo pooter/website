@@ -23,6 +23,8 @@ from django.utils import simplejson as json
 from google.appengine.api import urlfetch
 from urllib import urlencode
 
+template.register_template_library('helpers.app_filters')
+
 POOTER_API_ENDPOINT = 'http://pooter-bee-live.appspot.com/'
 
 
@@ -36,6 +38,20 @@ class WebPrizesPageHandler(BaseHandler):
   def get(self):
     path = helper.template_path("prizes.tmpl")
     self.response.out.write(template.render(path, self.template_args))
+
+
+class WebPootsPageHandler(BaseHandler):
+  def get(self):
+    url = POOTER_API_ENDPOINT + "poot/all"
+    result = urlfetch.fetch(url)
+
+    received_content = result.content
+
+    path = helper.template_path("poots.tmpl")
+    template_args = json.loads(received_content)
+    logging.info(template_args)
+
+    self.response.out.write(template.render(path, template_args))
 
 
 class WebPootPageHandler(BaseHandler):
@@ -55,6 +71,7 @@ class WebPootPageHandler(BaseHandler):
 application = webapp.WSGIApplication([
     ('/', WebIndexPageHandler),
     ('/prizes', WebPrizesPageHandler),
+    ('/poots', WebPootsPageHandler),
     ('/poot/([a-zA-Z0-9-_]+)', WebPootPageHandler),
 ], debug=True)
 

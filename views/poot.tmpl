@@ -1,6 +1,11 @@
 {% extends "master.tmpl" %}
 
 {% block js %}
+<script>
+  $(document).ready(function() {
+    select_top_nav(2);
+  });
+</script>
 {% endblock %}
 
 {% block meta %}
@@ -26,12 +31,12 @@
         </div>
         <div class="left">
           <span class="player_name">{{ player_name }}</span><br>
-          <span class="player_points">{{ player_points }}pts.</span>
+          <span class="player_points">{{ player_points }}pts</span>
         </div>
       </div>
       
       <h1>{{ poot_species_common_name }} Bumblebee</h1>
-      <h2>{{ poot_species_scientific_name }} - {{ poot_species_points }}pts.</h2>
+      <h2>{{ poot_species_scientific_name }} - {{ poot_species_points }}pts</h2>
       
       <div class="social">
         <div class="fb-like" data-href="http://pooter.it/poot/{{ poot_key }}" data-send="false" data-layout="button_count" data-width="50" data-show-faces="false"></div>

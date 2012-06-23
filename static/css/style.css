@@ -263,7 +263,7 @@ header #nav div.icon {
 header #nav .home div.icon { width: 66px; background-position: -352px -138px; }
 header #nav .pooter div.icon { width: 49px; background-position: -140px -28px; }
 header #nav .league div.icon { width: 70px; background-position: -239px -28px; }
-header #nav .bees div.icon { width: 56px; background-position: -138px -28px; }
+header #nav .bees div.icon { width: 56px; background-position: -138px -138px; }
 header #nav .download div.icon { width: 58px; background-position: -682px -138px; }
 header #nav .prizes div.icon { width: 52px; background-position: -792px -138px; }
 
@@ -803,6 +803,8 @@ input::-webkit-input-placeholder {
 
 .poot_image_wrapper {
   margin: 20px 8px;
+  position: relative;
+  z-index: 1;
 }
 
 .poot h1 {
@@ -813,7 +815,8 @@ input::-webkit-input-placeholder {
 .poot_image {
   width: 500px;
   height: 500px;
-  overflow: hidden;
+  overflow: visible;
+  position: relative;
   padding: 20px 20px 85px 20px;
   -webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.27), 0 0 40px rgba(0, 0, 0, 0.06) inset;
   -moz-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.27), 0 0 40px rgba(0, 0, 0, 0.06) inset; 
@@ -886,8 +889,8 @@ input::-webkit-input-placeholder {
 content: '';
 z-index: -1;
 position: absolute;
-left: 10px;
-bottom: 10px;
+left: 12px;
+bottom: 14px;
 width: 70%;
 max-width: 300px; /* avoid rotation causing ugly appearance at large container widths */
 max-height: 100px;
@@ -904,14 +907,84 @@ transform: skew(-15deg) rotate(-6deg); }
 
 .poot_image:after {
 left: auto;
-right: 10px;
+right: 25px;
 -webkit-transform: skew(15deg) rotate(6deg);
 -moz-transform: skew(15deg) rotate(6deg);
 -ms-transform: skew(15deg) rotate(6deg);
 -o-transform: skew(15deg) rotate(6deg);
-transform: skew(15deg) rotate(6deg); }
+transform: skew(15deg) rotate(6deg);
+}
 
 /* END POOT PAGE */
+
+
+/* POOTS PAGE */
+
+.poot_image_wrapper.thumb {
+  margin: 20px 17px;
+  float: left;
+}
+
+.poot_image.thumb {
+  width: 150px;
+  height: 150px;
+  padding: 10px;
+  margin-bottom: 10px;
+  -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.27), 0 0 10px rgba(0, 0, 0, 0.06) inset;
+  -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.27), 0 0 10px rgba(0, 0, 0, 0.06) inset; 
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.27), 0 0 10px rgba(0, 0, 0, 0.06) inset;
+  background: #FCFCFC;
+  -webkit-border-radius: 1px;
+  border-radius: 1px;
+}
+
+.poot_image.thumb .poot_date {
+  font-size: 13px;
+  margin-top: 10px;
+  font-family: Arial;
+}
+
+a .poot_image:hover {
+  background-color: #FC4B40;
+}
+
+.date-divider {
+  width: 170px;
+  height: 212px;
+  float: left;
+  margin: 20px 17px;
+}
+
+.date-divider .inner {
+  background: url('/images/green_turret_bg.png') -3px -7px;
+  color: #FFF;
+  font-size: 20px;
+  padding: 10px;
+  height: 150px;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  font-weight: bold;
+  position: relative;
+  text-shadow: 0 -1px 0px rgba(0,0,0,0.25);
+}
+
+.dispooted {
+  position: absolute;
+  top: -5px; left: -5px;
+}
+
+.light {
+  opacity: 0.5;
+  display: none;
+  font-size: 10px;
+}
+
+.day {
+  font-size: 40px;
+  line-height: 40px;
+}
+
+/* END POOTS PAGE */
 
 @font-face {
    font-family: 'AvantGardeBold';

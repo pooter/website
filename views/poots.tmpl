@@ -1,0 +1,49 @@
+{% extends "master.tmpl" %}
+
+{% block js %}
+<script>
+  $(document).ready(function() {
+    select_top_nav(2);
+    
+    $('.poot_image_wrapper').hover(function() {
+      $(this).find('.light').fadeIn();
+    }, function() {
+      $(this).find('.light').fadeOut();
+    });
+  });
+</script>
+{% endblock %}
+
+{% block body %}
+<div class="content white turf poot">
+  <div class="middling">
+    
+      {% for p in poots %}
+        
+        {% if p.poot_image_url %}
+        {% ifchanged %}
+          <div class="date-divider">
+            <div class="inner">
+              <div class="day">{{ p.poot_date_taken|parse_date|date:"d" }}</div>
+              <div class="month">{{ p.poot_date_taken|parse_date|date:"F" }}</div>
+            </div>
+          </div>
+        {% endifchanged %}
+        <a href="/poot/{{ p.poot_key }}">
+          <div class="poot_image_wrapper thumb">
+            <div class="poot_image thumb">
+              <img src="{{ p.poot_image_url }}=s150-c" />
+            </div>
+            <strong>{{ p.poot_species_common_name }}{% if p.poot_dispooted %}?
+              <img class="dispooted" src="/images/dispooted.png">{% endif %}
+              <span class="light"> {{ p.poot_species_points }}pts</span>
+            </strong><br>
+            by {{ p.player_name }}<span class="light"> {{ p.player_points }}pts</span>
+          </div>
+        </a>
+        {% endif %}
+      {% endfor %}
+    
+  </div>
+</div>
+{% endblock %}
