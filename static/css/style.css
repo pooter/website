@@ -241,7 +241,7 @@ header {
 
 header #logo {
   float: left;
-  padding: 5px 17px;
+  padding: 5px 0px;
 }
 
 header #logo a {
