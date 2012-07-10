@@ -1,0 +1,16 @@
+{% extends "master.tmpl" %}
+{% block body %}
+<div class="content white turf poot">
+  <div class="middling">
+    <h1>Login to Pooter!</h1>
+    <form action="/login" method="POST">
+      Email<br>
+      <input name="email" type="text" />
+      <br>
+      Password<br>
+      <input name="password" type="password" /><br>
+      <input type="submit" value="Login" />
+    </form>
+  </div>
+</div>
+{% endblock %}

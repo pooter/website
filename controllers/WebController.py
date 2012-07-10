@@ -9,7 +9,9 @@ Copyright (c) 2010 Tutt. All rights reserved.
 
 import os
 import logging
+import hashlib
 import wsgiref.handlers
+import urllib
 
 from google.appengine.api import users
 from google.appengine.ext.webapp import template
@@ -68,11 +70,33 @@ class WebPootPageHandler(BaseHandler):
     self.response.out.write(template.render(path, template_args))
 
 
+class WebLoginPageHandler(BaseHandler):
+  def get(self):
+    path = helper.template_path("login.tmpl")
+    self.response.out.write(template.render(path, None))
+    
+  
+  def post(self):
+    url = POOTER_API_ENDPOINT + "auth/login?"
+    form_fields = {
+      "email": self.request.get("email"),
+      "password": hashlib.md5(self.request.get("password")).hexdigest(),
+    }
+    form_data = urllib.urlencode(form_fields)
+    result = urlfetch.fetch(url=url,
+                            payload=form_data,
+                            method=urlfetch.POST,
+                            headers={'Content-Type': 'application/x-www-form-urlencoded'})
+    received_content = result.content
+    self.response.out.write(received_content)
+
+
 application = webapp.WSGIApplication([
     ('/', WebIndexPageHandler),
     ('/prizes', WebPrizesPageHandler),
     ('/poots', WebPootsPageHandler),
     ('/poot/([a-zA-Z0-9-_]+)', WebPootPageHandler),
+    ('/login', WebLoginPageHandler),
 ], debug=True)
 
 
