@@ -55,19 +55,36 @@
         designed to help save Britain's bees. 
         <a href="http://get.pooter.it"><br><strong>Download now</strong></a> and join them.
       </div>
-
-      {% if poot_dispooted %}
-        DISPOOTED!
-      {% endif %}
+      
     </div>
     
     <div class="right-col">
       <div class="poot_image_wrapper">
         <div class="poot_image">
-          <img src="{{ poot_image_url }}=s500-c" />
+          <img src="{{ poot_image_url }}=s500-c">
+          {% if poot_dispooted %}<img class="dispooted" src="/images/dispooted.png">{% endif %}
           <div class="poot_date" data-date="{{ poot_date_taken }}">{{ poot_species_common_name }} - </div>
         </div>
       </div>
+      <p>
+        {% if user_key %}
+          {% if not poot_dispooted %}
+            <form action="/poot/{{ poot_key }}/dispoot" method="POST">
+              <input type="hidden" name="points" value="{{ poot_species_points }}" />
+              <input type="hidden" name="redirect_url" value="{{ current_url }}" />
+              <select name="reason">
+                <option value="Wrong species">Wrong species</option>
+                <option value="Not a bee">Not a bee</option>
+                <option value="Photo not clear enough">Photo not clear enough</option>
+                <option value="Duplicate poot">Duplicate poot</option>
+                <option value="Not alive">Not alive</option>
+              <select>
+              <input type="submit" value="Dispoot!">
+            </form>
+          {% endif %}
+        {% else %}
+          <a href="/login?redirect_url={{ current_url }}">Login to dispoot</a>
+        {% endif %}
     </div>
     
   </div>

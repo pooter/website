@@ -9,6 +9,8 @@
       <br>
       Password<br>
       <input name="password" type="password" /><br>
+      {% if redirect_url %}<input type="hidden" name="redirect_url" value="{{ redirect_url }}" />{% endif %}
+      {% if message %}<p class="error">{{ message }}</p>{% endif %}
       <input type="submit" value="Login" />
     </form>
   </div>

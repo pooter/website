@@ -43,6 +43,13 @@ $(document).ready(function() {
     $(this).text($(this).text() + d_string);
   });
   
+  $('.player_name').each(function() {
+    var name = $(this).text();
+    if (name.length > 20) {
+      $(this).text(name.split(' ')[0] + ' ' + name.split(' ')[1]);
+    }
+  })
+  
   $('.phone .movie').each(function() {
     setInterval(function() {
       $('.phone .movie').animate({

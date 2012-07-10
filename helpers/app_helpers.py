@@ -14,6 +14,7 @@ from datetime import datetime
 from google.appengine.ext import db
 from google.appengine.ext import webapp
 from google.appengine.api import users
+from appengine_utilities import sessions
 
 
 DATETIME_FORMAT = "%Y-%m-%d %H:%M:%S"
@@ -45,9 +46,17 @@ class helper:
 
 class BaseHandler(webapp.RequestHandler):
     @property
+    def current_user_key(self):
+      self.sess = sessions.Session()
+      user_key = None
+      if self.sess.has_key("user_key"):
+        user_key = self.sess["user_key"]
+      return user_key
+    
+    @property
     def template_args(self):
         return { 
-            "is_admin": users.is_current_user_admin(),
+            "user_key": self.current_user_key,
             "current_url": self.request.url
         }
     
