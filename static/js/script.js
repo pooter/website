@@ -1,5 +1,8 @@
-/* Author: TEF
-*/
+var last_date = "";
+var m_names = new Array("Jan", "Feb", "March", 
+"April", "May", "June", "July", "Aug", "Sept", 
+"Oct", "Nov", "Dec");
+
 $(document).ready(function() {
   
   $('#poot_map').each(function() {
@@ -23,10 +26,6 @@ $(document).ready(function() {
       });
   });
   
-  var m_names = new Array("Jan", "Feb", "March", 
-  "April", "May", "June", "July", "Aug", "Sept", 
-  "Oct", "Nov", "Dec");
-  
   function parseDate(input, format) {
     format = format || 'yyyy-mm-dd'; // default format
     var parts = input.match(/(\d+)/g), 
@@ -42,13 +41,6 @@ $(document).ready(function() {
     var d_string = d.getDate() + " " + m_names[d.getMonth()] + ", " + d.getFullYear();
     $(this).text($(this).text() + d_string);
   });
-  
-  $('.player_name').each(function() {
-    var name = $(this).text();
-    if (name.length > 20) {
-      $(this).text(name.split(' ')[0] + ' ' + name.split(' ')[1]);
-    }
-  })
   
   $('.phone .movie').each(function() {
     setInterval(function() {
@@ -80,8 +72,94 @@ $(document).ready(function() {
   $('.credits').click(function() {
     $('.feature_bar.hidden').hide().removeClass('hidden').slideDown();
   });
+  
+  var opts = {
+    lines: 13, // The number of lines to draw
+    length: 0, // The length of each line
+    width: 3, // The line thickness
+    radius: 21, // The radius of the inner circle
+    rotate: 0, // The rotation offset
+    color: '#999', // #rgb or #rrggbb
+    speed: 1, // Rounds per second
+    trail: 60, // Afterglow percentage
+    shadow: false, // Whether to render a shadow
+    hwaccel: false, // Whether to use hardware acceleration
+    className: 'spinner', // The CSS class to assign to the spinner
+    zIndex: 2e9, // The z-index (defaults to 2000000000)
+    top: 'auto', // Top position relative to parent in px
+    left: 'auto' // Left position relative to parent in px
+  };
+  
+  $('.poot_placeholder').each(function() {
+    $(this).spin(opts);
+  });
 
 });
+
+$(window).load(function() {
+  grab_poots();
+});
+
+$(window).scroll(function(){  
+  if ($(window).scrollTop() == $(document).height() - $(window).height()) {
+    grab_poots();
+  }
+});
+
+function grab_poots() {
+  $('.poot_placeholder').each(function(i) {
+    if(i<25) {
+      var poot_key_name = $(this).attr('data-key-name');
+      
+      console.log("Fetching Poot with key: " + poot_key_name);
+      
+      $.get("/poot/" + poot_key_name + ".json", function(d) {
+        if("poot_image_url" in d) {
+          var dispooted_string = "";
+          if (d["poot_dispooted"] == true) {
+            dispooted_string = '<img class="dispooted" src="/images/dispooted.png">';
+          }
+
+          var name = d["player_name"];
+          if (name.length > 20) {
+            name = name.split(' ')[0];
+          }
+
+          var date = d["poot_date_taken"].split(" ")[0];
+          var output = "";
+
+          if (date != last_date) {
+            output += '<div class="date-divider">';
+            output += '  <div class="inner">';
+            output += '    <div class="day">' + date.split("-")[2] + '</div>';
+            output += '    <div class="month">' + m_names[parseInt(date.split("-")[1])-1] + '</div>';
+            output += '  </div>';
+            output += '</div>';
+          }
+
+          last_date = date;
+
+          output += '<a href="/poot/' + d["poot_key"] + '">\
+            <div class="poot_image_wrapper thumb" id="poot_' + d["poot_key"] + '">\
+              <div class="poot_image thumb">\
+                <img src="' + d["poot_image_url"] + '=s150-c" />\
+              </div>\
+              <strong>' + d["poot_species_common_name"] + dispooted_string + 
+                '<span class="light"> ' + d["poot_species_points"] + 'pts</span>\
+              </strong><br>\
+              <span class="player_name">by ' + name + '</span><span class="light"> ' + d["player_points"] + 'pts</span>\
+            </div>\
+          </a>';
+
+          $('#poot_placeholder_' + d["poot_key"]).replaceWith(output);
+          $('#poot_' + d["poot_key"]).fadeIn();
+        } else {
+          $('#poot_placeholder_' + d["poot_key"]).fadeOut();
+        }
+      });
+    }
+  });
+}
 
 function select_top_nav(index) {
   el = $('header #nav div.button').eq(index);
@@ -155,3 +233,19 @@ $.fx.step.backgroundPosition = function(fx) {
     fx.elem.style.backgroundPosition = nowPosX[0]+' '+nowPosX[1];
 };
 })(jQuery);
+
+$.fn.spin = function(opts) {
+  this.each(function() {
+    var $this = $(this),
+        data = $this.data();
+
+    if (data.spinner) {
+      data.spinner.stop();
+      delete data.spinner;
+    }
+    if (opts !== false) {
+      data.spinner = new Spinner($.extend({color: $this.css('color')}, opts)).spin(this);
+    }
+  });
+  return this;
+};

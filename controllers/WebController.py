@@ -45,14 +45,33 @@ class WebPrizesPageHandler(BaseHandler):
 
 class WebPootsPageHandler(BaseHandler):
   def get(self):
-    url = POOTER_API_ENDPOINT + "poot/all"
+    url = POOTER_API_ENDPOINT + "poot/all/1"
     
     result = urlfetch.fetch(url)
     received_content = result.content
+    logging.info(received_content)
     path = helper.template_path("poots.tmpl")
-    template_args = dict(self.template_args, **json.loads(received_content))
-
+    template_args = dict(self.template_args.items() + json.loads(received_content).items())
     self.response.out.write(template.render(path, template_args))
+
+
+class WebPootsAjaxPageHandler(BaseHandler):
+  def get(self, page):
+    url = POOTER_API_ENDPOINT + "poot/all/" + page
+
+    result = urlfetch.fetch(url)
+    received_content = result.content
+    self.response.out.write(received_content)
+
+
+class WebPootAjaxHandler(BaseHandler):
+  def get(self, poot_key_name):
+    url = POOTER_API_ENDPOINT + "poot/" + poot_key_name
+    result = urlfetch.fetch(url)
+    received_content = result.content
+
+    self.response.headers.add_header('content-type', 'application/json', charset='utf-8')
+    self.response.out.write(received_content)
 
 
 class WebPootPageHandler(BaseHandler):
@@ -135,7 +154,9 @@ application = webapp.WSGIApplication([
     ('/', WebIndexPageHandler),
     ('/prizes', WebPrizesPageHandler),
     ('/poots', WebPootsPageHandler),
+    ('/poots/([a-zA-Z0-9-_]+)', WebPootsAjaxPageHandler),
     ('/poot/([a-zA-Z0-9-_]+)/dispoot', WebDispootHandler),
+    ('/poot/([a-zA-Z0-9-_]+).json', WebPootAjaxHandler),
     ('/poot/([a-zA-Z0-9-_]+)', WebPootPageHandler),
     ('/login', WebLoginPageHandler),
     ('/logout', WebLogoutHandler),

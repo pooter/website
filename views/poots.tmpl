@@ -15,35 +15,13 @@
 {% endblock %}
 
 {% block body %}
-<div class="content white turf poot">
-  <div class="middling">
+  <div class="content white turf poot">
+    <div class="middling poots">
     
-      {% for p in poots %}
-        
-        {% if p.poot_image_url %}
-        {% ifchanged %}
-          <div class="date-divider">
-            <div class="inner">
-              <div class="day">{{ p.poot_date_taken|parse_date|date:"d" }}</div>
-              <div class="month">{{ p.poot_date_taken|parse_date|date:"F" }}</div>
-            </div>
-          </div>
-        {% endifchanged %}
-        <a href="/poot/{{ p.poot_key }}">
-          <div class="poot_image_wrapper thumb">
-            <div class="poot_image thumb">
-              <img src="{{ p.poot_image_url }}=s150-c" />
-            </div>
-            <strong>{{ p.poot_species_common_name }}{% if p.poot_dispooted %}?
-              <img class="dispooted" src="/images/dispooted.png">{% endif %}
-              <span class="light"> {{ p.poot_species_points }}pts</span>
-            </strong><br>
-            <span class="player_name">by {{ p.player_name }}</span><span class="light"> {{ p.player_points }}pts</span>
-          </div>
-        </a>
-        {% endif %}
-      {% endfor %}
-    
+        {% for p in poots %}
+          <div class="poot_placeholder{% if forloop.counter > 25 %} hide{% endif %}" id="poot_placeholder_{{ p.poot_key }}" data-key-name="{{ p.poot_key }}"></div>
+        {% endfor %}
+
+    </div>
   </div>
-</div>
 {% endblock %}

@@ -809,6 +809,10 @@ input::-webkit-input-placeholder {
   z-index: 1;
 }
 
+.poot_image_wrapper.thumb {
+  display: none;
+}
+
 .poot h1 {
   line-height: 45px;
   margin-top: 15px;
@@ -921,6 +925,17 @@ transform: skew(15deg) rotate(6deg);
 
 
 /* POOTS PAGE */
+.poot_placeholder {
+  width: 170px;
+  height: 212px;
+  background-color: #EEE;
+  float: left;
+  margin: 20px 17px;
+}
+
+.poot_placeholder.hide {
+  display: none;
+}
 
 .poot_image_wrapper.thumb {
   margin: 20px 17px;
