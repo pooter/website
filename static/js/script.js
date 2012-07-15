@@ -152,6 +152,11 @@ function grab_poots() {
           </a>';
 
           $('#poot_placeholder_' + d["poot_key"]).replaceWith(output);
+          $('#poot_' + d["poot_key"]).hover(function() {
+            $(this).find('.light').fadeIn();
+          }, function() {
+            $(this).find('.light').fadeOut();
+          });
           $('#poot_' + d["poot_key"]).fadeIn();
         } else {
           $('#poot_placeholder_' + d["poot_key"]).fadeOut();
