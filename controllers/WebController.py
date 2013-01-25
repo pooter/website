@@ -150,6 +150,10 @@ class WebLogoutHandler(BaseHandler):
     self.sess.delete()
     self.redirect(self.request.get("redirect_url"))
 
+class WebDownloadHandler(BaseHandler):
+  def get(self):
+    self.redirect('http://itunes.apple.com/gb/app/pooter!/id426349821?mt=8')
+
 application = webapp.WSGIApplication([
     ('/', WebIndexPageHandler),
     ('/prizes', WebPrizesPageHandler),
@@ -160,6 +164,7 @@ application = webapp.WSGIApplication([
     ('/poot/([a-zA-Z0-9-_]+)', WebPootPageHandler),
     ('/login', WebLoginPageHandler),
     ('/logout', WebLogoutHandler),
+    ('/download', WebDownloadHandler),
 ], debug=True)
 
 
