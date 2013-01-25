@@ -139,7 +139,7 @@ function grab_poots() {
 
           last_date = date;
 
-          output += '<a href="/poot/' + d["poot_key"] + '">\
+          output += '<a href="/poot/' + d["poot_key"] + '" target="_blank">\
             <div class="poot_image_wrapper thumb" id="poot_' + d["poot_key"] + '">\
               <div class="poot_image thumb">\
                 <img src="' + d["poot_image_url"] + '=s150-c" />\
